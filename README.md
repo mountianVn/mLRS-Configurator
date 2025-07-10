@@ -1,6 +1,8 @@
 # mLRS-Config
-Đây là phiên bản thử nghiệm cho phần mềm cấu hình cho MLRS
+Xin chào đây là phiên bản thử nghiệm cho phần mềm cấu hình cho MLRS
+
 Thông báo cập nhật
+
 1.Hoàn thiện phần cấu hình cho TX module
 
 2.Thêm phần cấu hình cho RX module
