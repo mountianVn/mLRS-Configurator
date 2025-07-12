@@ -86,17 +86,17 @@ class SerialTool(ctk.CTk):
         self.row3 = ctk.CTkFrame(self.tx_controls)
         self.row3.pack(pady=5, anchor="w")
         
-        self.style_button = ctk.CTkButton(self.row3, text="📡RF Band", command=self.send_rf_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
-        self.style_button.grid(row=0, column=0, padx=(20, 10,))
+        self.rf_button = ctk.CTkButton(self.row3, text="📡RF Band", command=self.send_rf_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.rf_button.grid(row=0, column=0, padx=(20, 10,))
 
-        self.style_menu = ctk.CTkComboBox(self.row3, values=["868mhz", "915mhz"], width=100,font=self.default_font)
-        self.style_menu.set("868mhz")
-        self.style_menu.grid(row=0, column=1, padx=10)
+        self.rf_menu = ctk.CTkComboBox(self.row3, values=["868mhz", "915mhz"], width=100,font=self.default_font)
+        self.rf_menu.set("868mhz")
+        self.rf_menu.grid(row=0, column=1, padx=10)
         # Dòng thứ 4: tín hiệu đầu vào 
         self.row4 = ctk.CTkFrame(self.tx_controls)
         self.row4.pack(pady=5, anchor="w")
 
-        self.rc_button = ctk.CTkButton(self.row4, text="📲CH Source", command=self.send_rc_protocol,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.rc_button = ctk.CTkButton(self.row4, text="📲CH Source", command=self.send_rc_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
         self.rc_button.grid(row=0, column=0, padx=(20, 10,))
 
         self.rc_menu = ctk.CTkComboBox(self.row4, values=["None","Sbus","CRSF","mBridge"], width=100,font=self.default_font)
@@ -122,11 +122,11 @@ class SerialTool(ctk.CTk):
         self.mode_menu.set("31hz")
         self.mode_menu.grid(row=0, column=1, padx=10)
 
-        # dòng thứ 7:order 
+        # dòng thứ 7:ch order 
         
         self.row7 = ctk.CTkFrame(self.tx_controls)
         self.row7.pack(pady=5, anchor="w")
-        self.order_button = ctk.CTkButton(self.row7, text="🎮Order ", command=self.send_order_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.order_button = ctk.CTkButton(self.row7, text="🎮Ch Order ", command=self.send_order_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
         self.order_button.grid(row=0, column=0, padx=(20, 10,))
         self.order_menu = ctk.CTkComboBox(self.row7, values=["AETR", "TAER", "ETAR"], width=100,font=self.default_font)
         self.order_menu.set("AETR")
@@ -137,7 +137,7 @@ class SerialTool(ctk.CTk):
         
         self.row8 = ctk.CTkFrame(self.tx_controls)
         self.row8.pack(pady=5, anchor="w")
-        self.dest_button = ctk.CTkButton(self.row8, text="🛰Dest ", command=self.send_dest_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.dest_button = ctk.CTkButton(self.row8, text="🛰Ser Dest", command=self.send_dest_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
         self.dest_button.grid(row=0, column=0, padx=(20, 10,))
         self.dest_menu = ctk.CTkComboBox(self.row8, values=["Serial", "mBridge"], width=100,font=self.default_font)
         self.dest_menu.set("Serial")
@@ -148,7 +148,7 @@ class SerialTool(ctk.CTk):
         # dòng thứthứ9:RF RF_ORTHO đích đến 
         self.row9 = ctk.CTkFrame(self.tx_controls)
         self.row9.pack(pady=5, anchor="w")
-        self.ortho_button = ctk.CTkButton(self.row9, text="🎚RF Ortho ", command=self.send_ortho_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.ortho_button = ctk.CTkButton(self.row9, text="🎚RF Ortho", command=self.send_ortho_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
         self.ortho_button.grid(row=0, column=0, padx=(20, 10,))
         self.ortho_menu = ctk.CTkComboBox(self.row9, values=["OFF", "1/3", "2/3", "3/3"], width=100,font=self.default_font)
         self.ortho_menu.set("OFF")
@@ -173,16 +173,16 @@ class SerialTool(ctk.CTk):
           # dòng thứ 12 :RADIOSTAT
         self.row12 = ctk.CTkFrame(self.tx_controls)
         self.row12.pack(pady=5, anchor="w")
-        self.radiostat_button = ctk.CTkButton(self.row12, text="📲Radiostat",font=self.default_font, command=self.send_radiostat_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.radiostat_button = ctk.CTkButton(self.row12, text="📲Snd RadioStat",font=self.default_font, command=self.send_radiostat_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.radiostat_button.grid(row=0, column=0, padx=(20, 10,))
         self.radiostat_menu = ctk.CTkComboBox(self.row12,font=self.default_font, values=[  "OFF","1Hz"], width=100)
         self.radiostat_menu.set("1Hz")
         self.radiostat_menu.grid(row=0, column=1, padx=10)
 
-         # dòng thứ 13 :COMPONENT
+         # dòng thứ 13 :Mav Component
         self.row13 = ctk.CTkFrame(self.tx_controls)
         self.row13.pack(pady=5, anchor="w")
-        self.COMPONENT_button = ctk.CTkButton(self.row13, text="🕹Component",font=self.default_font, command=self.send_COMPONENT_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.COMPONENT_button = ctk.CTkButton(self.row13, text="🕹Mav Component",font=self.default_font, command=self.send_COMPONENT_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.COMPONENT_button.grid(row=0, column=0, padx=(20, 10,))
         self.COMPONENT_menu = ctk.CTkComboBox(self.row13,font=self.default_font, values=[  "OFF","ENABLED"], width=100)
         self.COMPONENT_menu.set("OFF")
@@ -206,7 +206,7 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 3: rx_mode
         self.rx_row3 = ctk.CTkFrame(self.rx_controls)
         self.rx_row3.pack(pady=5, anchor="w")
-        self.rxmode_button = ctk.CTkButton(self.rx_row3,font=self.default_font, text="⚙️ RX OUT MODE", command=self.send_rxmode_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.rxmode_button = ctk.CTkButton(self.rx_row3,font=self.default_font, text="⚙️Out Mode", command=self.send_rxmode_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.rxmode_button.grid(row=0, column=0, padx=(20, 10))
         self.rxmode_menu = ctk.CTkComboBox(self.rx_row3,font=self.default_font, values=["Sbus", "CRSF", "Sbus INV"], width=100)
         self.rxmode_menu.set("CRSF")
@@ -215,7 +215,7 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 4:Rx Ser Baudrate
         self.rx_row4 = ctk.CTkFrame(self.rx_controls)
         self.rx_row4.pack(pady=5, anchor="w")
-        self.Baudrate_button = ctk.CTkButton(self.rx_row4,font=self.default_font, text="🔭Rx Baudrate", command=self.send_Baudrate_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.Baudrate_button = ctk.CTkButton(self.rx_row4,font=self.default_font, text="🔭Ser Baudrate", command=self.send_Baudrate_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.Baudrate_button.grid(row=0, column=0, padx=(20, 10))
         self.Baudrate_menu = ctk.CTkComboBox(self.rx_row4,font=self.default_font, values=["9600","19200","38400", "57600", "115200","230400"], width=100)
         self.Baudrate_menu.set("57600")
@@ -223,15 +223,15 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 5:Rx MAVLINK Mode
         self.rx_row5 = ctk.CTkFrame(self.rx_controls)
         self.rx_row5.pack(pady=5, anchor="w")
-        self.RXMAVLINK_button = ctk.CTkButton(self.rx_row5,font=self.default_font, text="🛰Rx LNK Mode", command=self.send_RXMAVLINK_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.RXMAVLINK_button = ctk.CTkButton(self.rx_row5,font=self.default_font, text="🛰Ser Link Mode", command=self.send_RXMAVLINK_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.RXMAVLINK_button.grid(row=0, column=0, padx=(20, 10))
-        self.RXMAVLINK_menu = ctk.CTkComboBox(self.rx_row5,font=self.default_font, values=["MAVLINK", "MAVLINKX", "MSPX"], width=100)
+        self.RXMAVLINK_menu = ctk.CTkComboBox(self.rx_row5,font=self.default_font, values=["Transp","MAVLINK", "MAVLINKX", "MSPX"], width=100)
         self.RXMAVLINK_menu.set("MAVLINK")
         self.RXMAVLINK_menu.grid(row=0, column=1, padx=10)
 # Dòng thứ 6:Rx Snd RadioStat
         self.rx_row6 = ctk.CTkFrame(self.rx_controls)
         self.rx_row6.pack(pady=5, anchor="w")
-        self.RadioStat_button = ctk.CTkButton(self.rx_row6,font=self.default_font, text="🚀Rx RadioStat", command=self.send_RadioStat_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.RadioStat_button = ctk.CTkButton(self.rx_row6,font=self.default_font, text="🚀Snd RadioStat", command=self.send_RadioStat_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.RadioStat_button.grid(row=0, column=0, padx=(20, 10))
         self.RadioStat_menu = ctk.CTkComboBox(self.rx_row6,font=self.default_font, values=["Off", "Ardu_1", "meth_b"], width=100)
         self.RadioStat_menu.set("Ardu_1")
@@ -239,7 +239,7 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 7  :Rx Ser Port
         self.rx_row7 = ctk.CTkFrame(self.rx_controls)
         self.rx_row7.pack(pady=5, anchor="w")
-        self.rxPort_button = ctk.CTkButton(self.rx_row7,font=self.default_font, text="🖥Rx Ser Port", command=self.send_rxPort_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.rxPort_button = ctk.CTkButton(self.rx_row7,font=self.default_font, text="🖥Ser Port", command=self.send_rxPort_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.rxPort_button.grid(row=0, column=0, padx=(20, 10))
         self.rxPort_menu = ctk.CTkComboBox(self.rx_row7,font=self.default_font, values=["Serial", "Can"], width=100)
         self.rxPort_menu.set("Serial")
@@ -247,7 +247,7 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 8  :RX_SND_RCCHANNEL
         self.rx_row8 = ctk.CTkFrame(self.rx_controls)
         self.rx_row8.pack(pady=5, anchor="w")
-        self.SND_RCCHANNEL_button = ctk.CTkButton(self.rx_row8,font=self.default_font, text="🌐SND RC CH", command=self.send_SND_RCCHANNEL_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
+        self.SND_RCCHANNEL_button = ctk.CTkButton(self.rx_row8,font=self.default_font, text="🌐Snd RcChannel", command=self.send_SND_RCCHANNEL_command, fg_color="#facc15",hover_color="#4d7bc5",text_color="black")
         self.SND_RCCHANNEL_button.grid(row=0, column=0, padx=(20, 10))
         self.SND_RCCHANNEL_menu = ctk.CTkComboBox(self.rx_row8,font=self.default_font, values=["Off", "rc Override","rc Channels"], width=100)
         self.SND_RCCHANNEL_menu.set("rc Override")
@@ -273,7 +273,7 @@ class SerialTool(ctk.CTk):
 # Dòng thứ 10  :rx Power Sw Ch
         self.rx_row11 = ctk.CTkFrame(self.rx_controls)
         self.rx_row11.pack(pady=5, anchor="w")
-        self.RXpower_CH_button = ctk.CTkButton(self.rx_row11, text="🎮Rx Power CH", command=self.send_RXpower_CH_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
+        self.RXpower_CH_button = ctk.CTkButton(self.rx_row11, text="🎮Power Sw Ch", command=self.send_RXpower_CH_command,fg_color="#facc15",hover_color="#4d7bc5",text_color="black",font=self.default_font)
         self.RXpower_CH_button.grid(row=0, column=0, padx=(20, 10,))
         self.RXpower_CH_menu = ctk.CTkComboBox(self.rx_row11, values=[  "Off","CH12","CH13", "CH14", "CH15"], width=100,font=self.default_font)
         self.RXpower_CH_menu.set("Off")
@@ -386,104 +386,78 @@ class SerialTool(ctk.CTk):
                 self.info_box.insert("1.0", version_text)
                 self.info_box.configure(state="disabled") 
             except Exception as e:
-                self.write_log(f"❌ Lỗi đọc version: {e}")           
+                self.write_log(f"❌ Lỗi đọc version: {e}")
 
-    #phần này của nút TX_POWER
+
+    def send_command_from_menu(self, menu_widget, command_map, label):
+        if self.ser and self.ser.is_open:
+           val = menu_widget.get()
+           if val in command_map:
+               command = f"{command_map[val]};\n"
+               self.ser.write(command.encode())
+               self.write_log(f"📤 Gửi: {command.strip()}")
+               self.beep_success()
+           else:
+                self.write_log(f"⚠️ Không xác định {label}: {val}")
+                self.show_info("⚠️", f"Không xác định {label}")
+        else:
+            self.write_log("⚠️ Chưa kết nối thiết bị!")
+#phần này của nút TX_POWER
     def send_pow_command(self):
-        try:
-            if self.ser and self.ser.is_open:
-                pow_val = self.pow_menu.get()                
-                pow_command_map = {
-                    "Level 0": "tx_power=0",
-                    "Level 1": "tx_power=1",
-                    "Level 2": "tx_power=2",
-                    "Level 3": "tx_power=3",
-                    "Level 4": "tx_power=4",
-                    "Level 5": "tx_power=5"                   
-                }
-                if pow_val in pow_command_map:
-                    command = f"p {pow_command_map[pow_val]};\n"
-                    self.ser.write(command.encode())
-                    self.write_log(f"📤 Gửi: {command.strip()}")
-                    self.beep_success()
-                else:
-                    self.write_log(f"⚠️ Không xác định công suất: {pow_val}")
-                    self.beep_success()
-                    self.show_info("⚠️","Không xác định công suất")
-            else:
-                self.write_log("⚠️ Chưa kết nối thiết bị!")
-        except Exception as ex:
-            print(ex)
+        self.send_command_from_menu(
+             menu_widget=self.pow_menu,
+             command_map={
+                  "Level 0": "p tx_power=0",
+                  "Level 1": "p tx_power=1",
+                  "Level 2": "p tx_power=2",
+                  "Level 3": "p tx_power=3",
+                  "Level 4": "p tx_power=4",
+                  "Level 5": "p tx_power=5",
+            
+             },
+             label="TX Power"
+        )        
+    
+   
 
     #đây là cài đặt tần số 
     def send_rf_command(self):
-        if self.ser and self.ser.is_open:
-            rf_val = self.style_menu.get()
-            # lựa chọn -> lệnh
-            rf_command_map = {
-            "868mhz": "p rf_band = 2",
-            "915mhz": "p rf_band = 1"
-            }
-            if rf_val in rf_command_map:
-                command = f"{rf_command_map[rf_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định kiểu truyền: {rf_val}")
-                self.beep_success()
-                self.show_info("⚠️","Không xác định kiểu truyền")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-       
+        self.send_command_from_menu(
+             menu_widget=self.rf_menu,
+             command_map={
+                  "868mhz": "p RF_BAND = 2",
+                  "915mhz": "p rf_band = 1"
+            
+             },
+             label="RF Band"
+        )   
     #đây là cài đặt mode ví dụ 50hz 
-    def send_mode_command(self):
-        if self.ser and self.ser.is_open:
-            mode_val = self.mode_menu.get()
-            # Ánh xạ lựa chọn -> lệnh
-            mode_command_map = {
-            "50hz": "p mode = 0",
-            "31hz": "p mode = 1",
-            "19hz": "p mode = 2",
-            "FLRC":"p mode = 3",
-            "FSK":  "p mode = 4"
 
-            }
-            if mode_val in mode_command_map:
-                command = f"{mode_command_map[mode_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định kiểu tốc độ: {mode_val}")
-                self.beep_success()
-                self.show_info("⚠️","Không xác định kiểu tốc độ")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
+    def send_mode_command(self):
+        self.send_command_from_menu(
+             menu_widget=self.mode_menu,
+             command_map={
+               "50hz": "p mode = 0",
+               "31hz": "p mode = 1",
+               "19hz": "p mode = 2",
+               "FLRC":"p mode = 3",
+               "FSK":  "p mode = 4"            
+             },
+             label=" Mode"
+        )
 
     #cái này cho nút cài đặt order ví dụ aetr 
     def send_order_command(self):
-        if self.ser and self.ser.is_open:
-            order_val = self.order_menu.get()
-            # Ánh xạ lựa chọn -> lệnh
-            order_command_map = {
-            "AETR": "p tx_ch_order = 0",
-            "TAER": "p tx_ch_order = 1",
-            "ETAR": "p tx_ch_order = 2"
-            }
-            if order_val in order_command_map:
-                command = f"{order_command_map[order_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-                
-            else:
-                self.write_log(f"⚠️ Không xác định kiểu order: {order_val}")
-                self.beep_success()
-                self.show_info("⚠️","Không xác định kiểu Order")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")       
-
+        self.send_command_from_menu(
+             menu_widget=self.order_menu,
+             command_map={
+               "AETR": "p tx_ch_order = 0",
+               "TAER": "p tx_ch_order = 1",
+               "ETAR": "p tx_ch_order = 2"            
+             },
+             label="Ch Order"
+        )
+    
     #cái này cho nút view module 
     def send_view_command(self):
         if self.ser and self.ser.is_open:
@@ -496,50 +470,28 @@ class SerialTool(ctk.CTk):
             self.beep_success()
                         
     #cái này cho nút CH source
-    def send_rc_protocol(self):
-        if self.ser and self.ser.is_open:
-            protocol_val = self.rc_menu.get()
-            protocol_map = {
-             "None": "p tx_ch_source = 0",
-             "Sbus": "p tx_ch_source = 2",
-             "CRSF": "p tx_ch_source = 1",
-             "mBridge": "p tx_ch_source = 3"
-        }
-            if protocol_val in protocol_map:
-               command = f"{protocol_map[protocol_val]};\n"
-               self.ser.write(command.encode())
-               self.write_log(f"📤 Gửi: {command.strip()}")
-               self.beep_success()            
-            else:
-               self.write_log(f"⚠️ Không xác định RC Protocol: {protocol_val}")
-               self.beep_success()
-               self.show_info("⚠️","Không xác định RC Protocol")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-
+    def send_rc_command(self):
+        self.send_command_from_menu(
+             menu_widget=self.rc_menu,
+             command_map={
+               "None": "p tx_ch_source = 0",
+               "Sbus": "p tx_ch_source = 2",
+               "CRSF": "p tx_ch_source = 1",
+               "mBridge": "p tx_ch_source = 3"           
+             },
+             label="CH Source"
+        )
 
     #cái này cho nút dest   
     def send_dest_command(self):
-        if self.ser and self.ser.is_open:
-            dest_val = self.dest_menu.get()
-            # Ánh xạ lựa chọn -> lệnh
-            dest_command_map = {
-            "Serial": "p tx_ser_dest = 0",
-            "mBridge": "p tx_ser_dest = 2"
-            }
-            if dest_val in dest_command_map:
-                command = f"{dest_command_map[dest_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-                
-            else:
-                self.write_log(f"⚠️ Không xác định kiểu đích đến: {dest_val}")
-                self.beep_success()
-                self.show_info("⚠️","Không xác định")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-    
+        self.send_command_from_menu(
+             menu_widget=self.dest_menu,
+             command_map={
+               "Serial": "p tx_ser_dest = 0",
+               "mBridge": "p tx_ser_dest = 2"           
+             },
+             label="Ser Dest"
+        ) 
 
     #cái này cho nút MÃ KHÓA     
     def send_bind_phrase(self):
@@ -589,319 +541,201 @@ class SerialTool(ctk.CTk):
 
     #đây là ortho
     def send_ortho_command(self):
-        if self.ser and self.ser.is_open:
-            ortho_val = self.ortho_menu.get()            
-            ortho_command_map = {
-                "OFF": "rf_ortho = 0",
+        self.send_command_from_menu(
+             menu_widget=self.ortho_menu,
+             command_map={
+               "OFF": "rf_ortho = 0",
                 "1/3": "rf_ortho = 1",
                 "2/3": "rf_ortho = 2",
-                "3/3": "rf_ortho = 3"                 
-            }
-            if ortho_val in ortho_command_map:
-                command = f"p {ortho_command_map[ortho_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-                
-            else:
-                self.write_log(f"⚠️ Không xác định ortho: {ortho_val}")
-                self.beep_success()
-                self.show_info("⚠️","Tần số này không thể sử dụng chức năng này")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
+                "3/3": "rf_ortho = 3"         
+             },
+             label="RF Ortho"
+        ) 
 
-    #cái này cho tx power
+    #cái này cho Tx Power Sw Ch
+    
     def send_power_CH_command(self):
-        if self.ser and self.ser.is_open:
-            power_CH_val = self.power_CH_menu.get()
-            
-            power_CH_command_map = {
-                "OFF": "tx_power_sw_ch= 0",
-                "CH12": "tx_power_sw_ch= 8",
-                "CH13": "tx_power_sw_ch= 9",
-                "CH14": "tx_power_sw_ch= 10",
-                "CH15": "tx_power_sw_ch= 11"                 
-            }
-            if power_CH_val in power_CH_command_map:
-                command = f"p {power_CH_command_map[power_CH_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định ortho: {power_CH_val}")
-                self.beep_success()
-                
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-   
+        self.send_command_from_menu(
+             menu_widget=self.power_CH_menu,
+             command_map={
+                "OFF":  "p tx_power_sw_ch= 0",
+                "CH12": "p tx_power_sw_ch= 8",
+                "CH13": "p tx_power_sw_ch= 9",
+                "CH14": "p tx_power_sw_ch= 10",
+                "CH15": "p tx_power_sw_ch= 11"          
+             },
+             label="Tx Power CH"
+        ) 
+
     #phần này cho baudrate
     def send_baudrate_command(self):
-        if self.ser and self.ser.is_open:
-            baudrate_val = self.baudrate_menu.get()            
-            baudrate_command_map = {
-                "9600": "tx_ser_baudrate = 0",
-                "19200": "tx_ser_baudrate = 1",
-                "38400": "tx_ser_baudrate = 2",
-                "57600": "tx_ser_baudrate = 3",
-                "115200": "tx_ser_baudrate = 4",
-                "230400": "tx_ser_baudrate = 5"                 
-            }
-            if baudrate_val in baudrate_command_map:
-                command = f"p {baudrate_command_map[baudrate_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định baudrate: {baudrate_val}")
-                self.beep_success()                
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
+        self.send_command_from_menu(
+             menu_widget=self.baudrate_menu,
+             command_map={
+                "9600": "p tx_ser_baudrate = 0",
+                "19200": "p tx_ser_baudrate = 1",
+                "38400": "p tx_ser_baudrate = 2",
+                "57600": "p tx_ser_baudrate = 3",
+                "115200": "p tx_ser_baudrate = 4",
+                "230400": "p tx_ser_baudrate = 5"          
+             },
+             label="Baudrate"
+        )  
     
     #phần này cho radiostat
     def send_radiostat_command(self):
-        if self.ser and self.ser.is_open:
-            radiostat_val = self.radiostat_menu.get()            
-            radiostat_command_map = {
+        self.send_command_from_menu(
+             menu_widget=self.radiostat_menu,
+             command_map={
                 "OFF": "tx_snd_radiostat = 0",
-                "1Hz": "tx_snd_radiostat = 1"
-                                 
-            }
-            if radiostat_val in radiostat_command_map:
-                command = f"p {radiostat_command_map[radiostat_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định radiostat: {radiostat_val}")
-                self.beep_success()                
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")  
- 
+                "1Hz": "tx_snd_radiostat = 1"          
+             },
+             label="Snd RadioStat"
+        ) 
+     
     #phần này cho COMPONENT
     def send_COMPONENT_command(self):
-        if self.ser and self.ser.is_open:
-            COMPONENT_val = self.COMPONENT_menu.get()            
-            COMPONENT_command_map = {
-                "OFF": "TX_MAV_COMPONENT = 0",
-                "ENABLED": "TX_MAV_COMPONENT = 1"                                 
-            }
-            if COMPONENT_val in COMPONENT_command_map:
-                command = f"p {COMPONENT_command_map[COMPONENT_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định COMPONENT: {COMPONENT_val}")
-                self.beep_success()                
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")                 
-
-    
-    
+        self.send_command_from_menu(
+             menu_widget=self.COMPONENT_menu,
+             command_map={
+                "OFF": "p TX_MAV_COMPONENT = 0",
+                "ENABLED": "p TX_MAV_COMPONENT = 1"       
+             },
+             label="Mav Component"
+        )
+      
   #PHẦN NÀY CHO RX
 
     #PHẦN NÈ CHO NÚT RX_POWER
     def send_rxpow_command(self):
-        if self.ser and self.ser.is_open:
-            rxpow_val = self.rxpow_menu.get()           
-            rxpow_command_map = {
-                "Level 0": "rx_power=0",
-                "Level 1": "rx_power=1",
-                "Level 2": "rx_power=2",
-                "Level 3": "rx_power=3",
-                "Level 4": "rx_power=4",
-                "Level 5": "rx_power=5"
-                
-            }
-            if rxpow_val in rxpow_command_map:
-                command = f"p {rxpow_command_map[rxpow_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-               
-            else:
-                self.write_log(f"⚠️ Không xác định công suất: {rxpow_val}")
-                self.beep_success()
-                self.show_info("⚠️","Không xác định công suất")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-     
-            
+        self.send_command_from_menu(
+             menu_widget=self.rxpow_menu,
+             command_map={
+                "Level 0": "p rx_power=0",
+                "Level 1": "p rx_power=1",
+                "Level 2": "p rx_power=2",
+                "Level 3": "p rx_power=3",
+                "Level 4": "p rx_power=4",
+                "Level 5": "p rx_power=5"      
+             },
+             label="RX_Power"
+        )
+              
     # cái này cho nút rxmode nà
     def send_rxmode_command(self):
-        if self.ser and self.ser.is_open:
-            rxmode_val = self.rxmode_menu.get()            
-            rxmode_command_map = {
-                "Sbus": "RX_OUT_MODE = 0",
-                "CRSF": "RX_OUT_MODE = 1",
-                "Sbus INV": "RX_OUT_MODE = 2"                
-            }
-            if rxmode_val in rxmode_command_map:
-                command = f"p {rxmode_command_map[rxmode_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định công suất: {rxmode_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-     
+        self.send_command_from_menu(
+             menu_widget=self.rxmode_menu,
+             command_map={
+                "Sbus": "p RX_OUT_MODE = 0",
+                "CRSF": "p RX_OUT_MODE = 1",
+                "Sbus INV": "p RX_OUT_MODE = 2"     
+             },
+             label="Out Mode"
+        )
+ 
     # cái này cho nút Rx Ser Baudrate
     def send_Baudrate_command(self):
-        if self.ser and self.ser.is_open:
-            Baudrate_val = self.Baudrate_menu.get()            
-            Baudrate_command_map = {
-                "9600": "rx_ser_baudrate = 0",
-                "19200": "rx_ser_baudrate = 1",
-                "38400": "rx_ser_baudrate = 2",
-                "57600": "rx_ser_baudrate = 3",
-                "115200": "rx_ser_baudrate = 4",
-                "230400": "rx_ser_baudrate = 5"                 
-            }
-            if Baudrate_val in Baudrate_command_map:
-                command = f"p {Baudrate_command_map[Baudrate_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định Baudrate: {Baudrate_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-
+        self.send_command_from_menu(
+             menu_widget=self.Baudrate_menu,
+             command_map={
+                "9600": "p rx_ser_baudrate = 0",
+                "19200": "p rx_ser_baudrate = 1",
+                "38400": "p rx_ser_baudrate = 2",
+                "57600": "p rx_ser_baudrate = 3",
+                "115200": "p rx_ser_baudrate = 4",
+                "230400": "p rx_ser_baudrate = 5"     
+             },
+             label="Ser Baudrate"
+        )
+    
     # cái này cho nút Rx LNK 
     def send_RXMAVLINK_command(self):
-        if self.ser and self.ser.is_open:
-            RXMAVLINK_val = self.RXMAVLINK_menu.get()            
-            RXMAVLINK_command_map = {
-                "MAVLINK": "RX_SER_LNK_MODE = 0",
-                "MAVLINKX": "RX_SER_LNK_MODE = 1",
-                "MSPX": "RX_SER_LNK_MODE = 2",
-                  
-            }
-            if RXMAVLINK_val in RXMAVLINK_command_map:
-                command = f"p {RXMAVLINK_command_map[RXMAVLINK_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định lnk mode : {RXMAVLINK_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")        
+        self.send_command_from_menu(
+             menu_widget=self.RXMAVLINK_menu,
+             command_map={
+                "Transp" : "p RX_SER_LINK_MODE = 0",
+                "MAVLINK": "p RX_SER_LINK_MODE = 1",
+                "MAVLINKX": "p RX_SER_LINK_MODE = 2",
+                "MSPX": "p RX_SER_LINK_MODE = 3",     
+             },
+             label="Ser Link Mode"
+        )        
     
     # cái này cho nút Rx Snd RadioStat 
     def send_RadioStat_command(self):
-        if self.ser and self.ser.is_open:
-            RadioStat_val = self.RadioStat_menu.get()
-            
-            RadioStat_command_map = {
-                "Off": "RX_SND_RADIOSTAT = 0",
-                "Ardu_1": "RX_SND_RADIOSTAT = 1",
-                "meth_b": "RX_SND_RADIOSTAT = 2"
-                  
-            }
-            if RadioStat_val in RadioStat_command_map:
-                command = f"p {RadioStat_command_map[RadioStat_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định Snd RadioStat  : {RadioStat_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")
-    
+        self.send_command_from_menu(
+             menu_widget=self.RadioStat_menu,
+             command_map={
+                "Off":    "p Rx_Snd_RadioStat = 0",
+                "Ardu_1": "p Rx_Snd_RadioStat = 1",
+                "meth_b": "p Rx_Snd_RadioStat = 2"     
+             },
+             label="Snd RadioStat"
+        )
     # cái này cho nút Rx Ser Port
     def send_rxPort_command(self):
-        if self.ser and self.ser.is_open:
-            rxPort_val = self.rxPort_menu.get()
-            
-            rxPort_command_map = {
-                "Serial": "RX_SER_PORT = 0",
-                "Can": "RX_SER_PORT = 1",                 
-            }
-            if rxPort_val in rxPort_command_map:
-                command = f"p {rxPort_command_map[rxPort_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định Ser Port  : {rxPort_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")        
-
+        self.send_command_from_menu(
+             menu_widget=self.rxPort_menu,
+             command_map={
+                "Serial": "p Rx_Ser_Port = 0",
+                "Can":    "p Rx_Ser_Port = 1"     
+             },
+             label="Ser Port"
+        )
+           
     # cái này cho nút RX_SND_RCCHANNEL
     def send_SND_RCCHANNEL_command(self):
-        if self.ser and self.ser.is_open:
-            SND_RCCHANNEL_val = self.SND_RCCHANNEL_menu.get()
-            
-            SND_RCCHANNEL_command_map = {
-                "Off": "RX_SND_RCCHANNEL = 0",
-                "rc Override": "RX_SND_RCCHANNEL = 1", 
-                "rc Channels": "RX_SND_RCCHANNEL= 2"                
-            }
-            if SND_RCCHANNEL_val in SND_RCCHANNEL_command_map:
-                command = f"p {SND_RCCHANNEL_command_map[SND_RCCHANNEL_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định RCCHANNEL : {SND_RCCHANNEL_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!") 
+        self.send_command_from_menu(
+             menu_widget=self.SND_RCCHANNEL_menu,
+             command_map={
+                "Off": "p RX_SND_RCCHANNEL = 0",
+                "rc Override": "p RX_SND_RCCHANNEL = 1", 
+                "rc Channels": "p RX_SND_RCCHANNEL= 2"      
+             },
+             label="Snd RcChannel"
+        )
+          
+   
 
     # cái này cho nút RX_OUT_RSSI_CH
     def send_RSSI_CH_command(self):
-        if self.ser and self.ser.is_open:
-            RSSI_CH_val = self.RSSI_CH_menu.get()           
-            RSSI_CH_command_map = {
-                "Off": "RX_OUT_RSSI_CH = 0",
-                "CH 14": "RX_OUT_RSSI_CH = 10", 
-                "CH 15": "RX_OUT_RSSI_CH = 11" ,
-                "CH 16": "RX_OUT_RSSI_CH= 12"                
-            }
-            if RSSI_CH_val in RSSI_CH_command_map:
-                command = f"p {RSSI_CH_command_map[RSSI_CH_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định OUT RSSI_CH: {RSSI_CH_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!") 
+        self.send_command_from_menu(
+             menu_widget=self.RSSI_CH_menu,
+             command_map={
+                "Off": "p RX_OUT_RSSI_CH = 0",
+                "CH 14": "p RX_OUT_RSSI_CH = 10", 
+                "CH 15": "p RX_OUT_RSSI_CH = 11" ,
+                "CH 16": "p RX_OUT_RSSI_CH= 12"      
+             },
+             label="OUT RSSI CH"
+        ) 
 
     # cái này cho nút RX_LQ_RSSI_CH
     def send_LQ_CH_command(self):
-        if self.ser and self.ser.is_open:
-            LQ_CH_val = self.LQ_CH_menu.get()            
-            LQ_CH_command_map = {
-                "Off": "RX_OUT_LQ_CH = 0",
-                "CH 14": "RX_OUT_LQ_CH = 10", 
-                "CH 15": "RX_OUT_LQ_CH = 11" ,
-                "CH 16": "RX_OUT_LQ_CH= 12"                
-            }
-            if LQ_CH_val in LQ_CH_command_map:
-                command = f"p {LQ_CH_command_map[LQ_CH_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-            else:
-                self.write_log(f"⚠️ Không xác định OUT RSSI_CH: {LQ_CH_val}")
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!") 
+        self.send_command_from_menu(
+             menu_widget=self.LQ_CH_menu,
+             command_map={
+                "Off": "p RX_OUT_LQ_CH = 0",
+                "CH 14": "p RX_OUT_LQ_CH = 10", 
+                "CH 15": "p RX_OUT_LQ_CH = 11" ,
+                "CH 16": "p RX_OUT_LQ_CH= 12"     
+             },
+             label="OUT LQ CH"
+        ) 
 
     #cái này cho nút rx Power Sw Ch
     def send_RXpower_CH_command(self):
-        if self.ser and self.ser.is_open:
-            RXpower_CH_val = self.RXpower_CH_menu.get()            
-            RXpower_CH_command_map = {
-                "Off": "rx_power_sw_ch= 0",
-                "CH12": "rx_power_sw_ch= 8",
-                "CH13": "rx_power_sw_ch= 9",
-                "CH14": "rx_power_sw_ch= 10",
-                "CH15": "rx_power_sw_ch= 11"                 
-            }
-            if RXpower_CH_val in RXpower_CH_command_map:
-                command = f"p {RXpower_CH_command_map[RXpower_CH_val]};\n"
-                self.ser.write(command.encode())
-                self.write_log(f"📤 Gửi: {command.strip()}")
-                self.beep_success()
-            else:
-                self.write_log(f"⚠️ Không xác định SW Ch: {RXpower_CH_val}")
-                self.beep_success()
-                
-        else:
-            self.write_log("⚠️ Chưa kết nối thiết bị!")   
+        self.send_command_from_menu(
+             menu_widget=self.RXpower_CH_menu,
+             command_map={
+                "Off": "p rx_power_sw_ch= 0",
+                "CH12": "p rx_power_sw_ch= 8",
+                "CH13": "p rx_power_sw_ch= 9",
+                "CH14": "p rx_power_sw_ch= 10",
+                "CH15": "p rx_power_sw_ch= 11"      
+             },
+             label="Power Sw Ch"
+        ) 
 
     #cái này cho phần nhập lệnh cli thủ công
     def send_cli_command(self):
