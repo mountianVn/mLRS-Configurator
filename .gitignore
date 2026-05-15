@@ -1,0 +1,16 @@
+# Build outputs
+build/
+dist/
+
+# Python cache
+__pycache__/
+
+# Git
+.git/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json

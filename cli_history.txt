@@ -1,0 +1,13 @@
+p tx_power=1;
+p tx_ser_baudrate =
+P tx_in_mode =
+p tx_ch_source = P tx_power=1;
+p tx_;
+p tx_ch_source = P tx_power=1;
+p rx_ortho =1;
+p;
+p tx_power=;
+p tx_ch;
+p tx_;
+p tx_power=;
+p rx_ortho =1;
