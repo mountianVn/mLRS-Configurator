@@ -1,0 +1,51 @@
+[00:44:59.422] TX: pl;
+[00:44:59.500] RX: pl>
+[00:44:59.502] RX: ConfigId:0
+[00:44:59.503] RX: >
+[00:44:59.504] RX: empty cmd
+[00:44:59.505] RX: >
+[00:44:59.505] RX: empty cmd
+[00:44:59.506] RX: Bind Phrase = mlrs.0
+[00:44:59.507] RX: Mode = 31 Hz [1]
+[00:44:59.508] RX: RF Band = 915 MHz FCC [1]
+[00:44:59.528] RX: RF Ortho = off [0]
+[00:44:59.528] RX: Tx Power = 1 mW [1]
+[00:44:59.528] RX: Tx Diversity = antenna1 [1](unchangeable)
+[00:44:59.528] RX: Tx Ch Source = in [2]
+[00:44:59.556] RX: Tx Ch Order = AETR [0]
+[00:44:59.557] RX: Tx In Mode = sbus [0]
+[00:44:59.558] RX: Tx Ser Dest = serial [0]
+[00:44:59.559] RX: Tx Ser Baudrate = 115200 [4]
+[00:44:59.559] RX: Tx Snd RadioStat = 1 Hz [1]
+[00:44:59.567] RX: Tx Mav Component = enabled [1]
+[00:44:59.567] RX: Tx Power Sw Ch = 13 [9]
+[00:44:59.568] RX: Tx Buzzer = - (unavailable)
+[00:44:59.568] RX: Rx Power = 100 mW [4]
+[00:44:59.594] RX: Rx Diversity = enabled [0](unchangeable)
+[00:44:59.595] RX: Rx Ch Order = AETR [0]
+[00:44:59.595] RX: Rx Out Mode = crsf [1]
+[00:44:59.595] RX: Rx FailSafe Mode = no sig [0]
+[00:44:59.620] RX: Rx Ser Port = serial [0](unchangeable)
+[00:44:59.621] RX: Rx Ser Baudrate = 115200 [4]
+[00:44:59.621] RX: Rx Ser Link Mode = mavlink [1]
+[00:44:59.621] RX: Rx Snd RadioStat = ardu_1 [1]
+[00:44:59.631] RX: Rx Snd RcChannel = rc override [1]
+[00:44:59.631] RX: Rx Out Rssi Ch = off [0]
+[00:44:59.632] RX: Rx Out LQ Ch = 16 [<]
+[00:44:59.632] RX: Rx Power Sw Ch = 12 [8]
+[00:44:59.661] RX: Rx FS Ch1 = 0 %
+[00:44:59.662] RX: Rx FS Ch2 = 0 %
+[00:44:59.663] RX: Rx FS Ch3 = 0 %
+[00:44:59.663] RX: Rx FS Ch4 = 0 %
+[00:44:59.663] RX: Rx FS Ch5 = 0 %
+[00:44:59.663] RX: Rx FS Ch6 = 0 %
+[00:44:59.664] RX: Rx FS Ch7 = 0 %
+[00:44:59.694] RX: Rx FS Ch8 = 0 %
+[00:44:59.694] RX: Rx FS Ch9 = 0 %
+[00:44:59.695] RX: Rx FS Ch10 = 0 %
+[00:44:59.695] RX: Rx FS Ch11 = 0 %
+[00:44:59.695] RX: Rx FS Ch12 = 0 %
+[00:44:59.695] RX: Rx FS Ch13 = 0 % [1]
+[00:44:59.801] RX: Rx FS Ch14 = 0 % [1]
+[00:44:59.801] RX: Rx FS Ch15 = 0 % [1]
+[00:44:59.801] RX: Rx FS Ch16 = 0 % [1]

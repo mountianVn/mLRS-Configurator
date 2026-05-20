@@ -1,0 +1,9 @@
+Message			Dữ liệu
+HEARTBEAT		trạng thái FC
+ATTITUDE		góc UAV
+LOCAL_POSITION_NED	tọa độ local
+GLOBAL_POSITION_INT	GPS global
+RAW_IMU			accel gyro
+SYS_STATUS		battery
+VFR_HUD			speed altitude
+PARAM_VALUE		parameter

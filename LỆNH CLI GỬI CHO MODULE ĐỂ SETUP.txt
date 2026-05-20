@@ -1,0 +1,42 @@
+TỔNG HỢP CÁC THAM SỐ TUỲ CHỌN CỦA MODULE 
+
+1.Lệnh cho module TX
+
+TÊN THAM SỐ 		|	GIÁ TRỊ TÙY CHỌN	LỆNH CLI GỬI QUA SERIAL
+TX Power		| 	Level 0-5		     p tx_power=0-5;
+RF Band			|	2.4GHz,868mHz,915mHz         p rf_band = 0-2;
+CH Source		|	None,Sbus,CRSF,mBridge       p tx_ch_source = 0-3;
+Bind Phrase		|	phrase		             p bind_phrase = {phrase};
+Mode			|	50hz,31hz,19hz,FLRC,FSK	     p mode = 0-4;
+Ch Order		|	AETR,TAER,ETAR		     p tx_ch_order = 0-2;
+Ser Dest		|       Serial,mBridge	             p tx_ser_dest = 0;
+Tx Power CH		|	OFF,CH12,CH13,CH14,CH15	     p tx_power_sw_ch= 0,8,9,10,11;
+Tx Baudrate		|	9600,19200,38400,57600,115200 p tx_ser_baudrate = 0-4;
+Snd RadioStat		|       OFF,1HZ			      P tx_snd_radiostat = 0-1;
+Mav Component		|	OFF,ENABLED		      p TX_MAV_COMPONENT = 0-1;
+RF Ortho		|       OFF,1/3,2/3,3/3		      p RF_Ortho = 0-3;
+SAVE 			|				      pstore;
+VIEW			|				      pl;
+version			|				      v;
+
+
+2.Lệnh cho module RX
+
+TÊN THAM SỐ 		|	GIÁ TRỊ TÙY CHỌN	LỆNH CLI GỬI QUA SERIAL
+
+RX Power		| 	Level 0-5		     p rx_power=0-5;
+Out Mode		|	Sbus,CRSF,Sbus INV	     p RX_OUT_MODE = 0-2;
+Ser Baudrate		|     9600,19200,38400,57600,115200  p rx_ser_baudrate = 0-4;
+Ser Link Mode		|	Transp,MAVLINK,MAVLINKX,MSPX p RX_SER_LINK_MODE = 0-3;
+Snd RadioStat		|	Off,Ardu_1,meth_b		p Rx_Snd_RadioStat = 0-2;
+Ser Port		|	Serial,Can			p Rx_Ser_Port = 0-1;
+Snd RcChannel		|	Off,rc Override,rc Channels	p RX_SND_RCCHANNEL = 0-2;
+OUT RSSI CH		|	Off,CH 14,CH 15,CH 16		p RX_OUT_RSSI_CH = 0,10,11,12,13;
+OUT LQ CH		|	Off,CH 14,CH 15,CH 16		p RX_OUT_LQ_CH= 0,10,11,12,13;
+Power Sw Ch		|	Off,CH 14,CH 15,CH 16		p rx_power_sw_ch= 0,10,11,12,13;
+
+
+
+
+
+
